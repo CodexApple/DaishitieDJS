@@ -15,8 +15,19 @@ const client = new DiscordJS.Client({
 client.on('ready', () => {
     new WOKCommands(client, {
         commandDir: path.join(__dirname, 'commands'),
-        testServers: ['881832341293641769'],
+        featureDir: path.join(__dirname, 'features'),
+        messagesPath: '',
+        showWarns: true,
+        delErrMsgCooldown: -1,
+        defaultLanguage: 'english',
+        ignoreBots: false,
+        ephemeral: false,
+        testServers: '881832341293641769',
+        botOwners: ['266897885533175808', '742419682489008188'],
+        disabledDefaultCommands: ['help', 'language', 'prefix', 'requiredrole'],
+        debug: true,
     })
+        .setDefaultPrefix('d!')
 })
 
 client.login(process.env.TOKEN)

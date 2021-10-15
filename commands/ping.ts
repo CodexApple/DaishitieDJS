@@ -7,6 +7,6 @@ export default {
     testOnly: true,
 
     callback: ({ }) => {
-        return 'Pong 🏓'
+        return 'Pong'
     }
 } as ICommand
