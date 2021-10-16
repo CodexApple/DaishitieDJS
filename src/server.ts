@@ -24,7 +24,7 @@ client.on('ready', () => {
         ephemeral: false,
         testServers: '881832341293641769',
         botOwners: ['266897885533175808', '742419682489008188'],
-        disabledDefaultCommands: ['help', 'language', 'prefix', 'requiredrole'],
+        disabledDefaultCommands: ['language', 'prefix', 'requiredrole'],
         mongoUri: process.env.MONGO_URI,
         debug: true,
     }).setDefaultPrefix('-')

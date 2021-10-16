@@ -8,9 +8,9 @@ export default {
     testOnly: true,
     ownerOnly: true,
 
-    callback: ({ message, channel }) => {
-        message.reply('Please confirm this action')
-        message.react('👍')
+    callback: async ({ message, channel }) => {
+        await message.react('👍')
+        let reply = await message.reply('Please confirm this action')
 
         // const filter = (m: Message) => {
         //     return m.author.id === message.author.id
@@ -36,18 +36,15 @@ export default {
             console.log(reaction.emoji)
         })
 
-        collector.on('end', (collected) => {
+        collector.on('end', async (collected) => {
             if (collected.size === 0) {
-                message.reply('⛔ You did not react in time.')
+                await reply.edit('⛔ You did not react in time.')
                 return
             }
 
             let text = 'Collected:\n\n'
-            collected.forEach((reaction) => {
-                text += `${reaction.emoji.name}\n`
-            })
-
-            message.reply(text)
+            collected.forEach((reaction) => text += `${reaction.emoji.name}\n`)
+            await reply.edit(text)
         })
     },
 } as ICommand

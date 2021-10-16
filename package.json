@@ -1,14 +1,19 @@
 {
   "name": "daishitie",
   "version": "1.0.0",
-  "description": "",
+  "description": "A multi-purpose private discord bot",
   "main": "index.ts",
   "scripts": {
-    "start": "node index.js",
-    "tsc": "tsc -w --skipLibCheck"
+    "pm2": "NODE_ENV=production pm2 start build/server.js --watch",
+    "pm2:staging": "NODE_ENV=staging pm2 start build/server.js --watch",
+    "prod": "NODE_ENV=production node build/server.js",
+    "staging": "NODE_ENV=staging node build/server.js",
+    "dev": "HTTPS=true NODE_ENV=development ts-node-dev --inspect --respawn src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -w tsconfig.json"
   },
   "keywords": [],
-  "author": "",
+  "author": "daishitie",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^13.2.0",

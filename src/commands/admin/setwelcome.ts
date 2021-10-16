@@ -9,7 +9,8 @@ export default {
     minArgs: 2,
     expectedArgs: '<channel> <message>',
     slash: 'both',
-    testOnly: true,
+    testOnly: false,
+    guildOnly: true,
     options: [
         {
             name: 'channel',

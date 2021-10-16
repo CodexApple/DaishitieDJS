@@ -56,6 +56,14 @@ export default {
         // })
 
         collector.on('end', async (collected) => {
+            if (collected.size === 0) {
+                msgInt.editReply({
+                    content: '⛔ You did not respond in time.',
+                    components: [],
+                })
+                return
+            }
+
             collected.forEach((click) => console.log(click.user.id, click.customId))
 
             if (collected.first()?.customId === 'ban_yes') {

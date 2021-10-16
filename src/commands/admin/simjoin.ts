@@ -5,7 +5,8 @@ export default {
     description: 'Simulates a join.',
     permissions: ['ADMINISTRATOR'],
     slash: 'both',
-    testOnly: true,
+    testOnly: false,
+    guildOnly: true,
 
     callback: ({ member, client }) => {
         client.emit('guildMemberAdd', member)
