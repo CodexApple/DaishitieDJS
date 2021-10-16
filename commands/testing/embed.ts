@@ -4,11 +4,13 @@ import { ICommand } from 'wokcommands'
 export default {
     category: 'Testing',
     description: 'Send an embed.',
-    slash: 'both',
+    slash: true,
     testOnly: true,
-    permissions: ['ADMINISTRATOR'],
+    ownerOnly: true,
 
-    callback: ({ }) => {
-        return 'Pong'
+    callback: async ({ text }) => {
+        const json = JSON.parse(text)
+        const embed = new MessageEmbed(json)
+        return embed
     },
 } as ICommand
